@@ -12,7 +12,8 @@ import (
 
 func main() {
 	app := fiber.New()
-	
+	port := os.Getenv("PORT")
+
 	// app.Use(logger.New())
 	routes.Setup(app)
 	err := godotenv.Load()
@@ -20,9 +21,7 @@ func main() {
     log.Fatal("Error loading .env file")
   }
 
-  port := os.Getenv("PORT")
+	app.Listen(":" + port)
+	fmt.Println("Server is runnig on port: %v", port)
 
-	app.Listen(":"+port)
-	fmt.Println("Server is runnig on port:", port)
-	
 }
