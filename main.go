@@ -31,7 +31,7 @@ func main() {
 	port := os.Getenv("PORT")
 
 	fmt.Println("Server is runnig on port from config:", config.ServerPort)
-	fmt.Println("Server is runnig on port from dotenv:", port)
+	// fmt.Println("Server is runnig on port from dotenv:", port)
 
 	app.Listen(":" + config.ServerPort)
 
